@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>IA nos Estudos: Prompt não é Método</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav aria-label="Seções">
+        <a href="#início">Início</a><a href="#areas">IAs por área</a><a href="#metodo">Prompt × Método</a><a href="#dicas">Dicas</a><a href="#modelos">Prompts modelo</a><a
+            href="#vantagem">Vantagem</a><a href="#mercado">Mercado</a><a href="#piloto">Resumo</a>
+    </nav>
+
+    <section id="inicio">
+        <p class="lead">Projeto de estudo com I.A. - Ensino Médio</p>
+        <h1>Prompt <span class="neq">≠</span> Método</h1>
+        <p class="lead">Perguntar para a IA qualquer coisa dá resposta qualquer. Quem tem método aprende mais rápido.
+            Role a página e descubra como.</p>
+        <div class="toggle" role="group" aria-label="Comparar perguntas">
+            <button aria-pressed="true" data-k="0">Pergunta fraca</button>
+            <button aria-pressed="false" data-k="1">Pergunta com método</button>
+        </div>
+        <div class="card demo" id="demo" aria-live="polite"></div>
+    </section>
+
+    <section id="areas">
+        <h2>Qual IA usar em cada área?</h2>
+        <p class="lead">O ENEM se divide em 4 áreas (BNCC). Escolha a sua e veja a ferramenta ideal.</p>
+        <div class="tabs" role="tablist" id="tabs"></div>
+        <div class="card panel" id="panel" role="tabpanel"></div>
+    </section>
+
+    <section id="metodo">
+        <h2>Prompt fraco × prompt com método</h2>
+        <p class="lead"><b>Prompt</b> é a pergunta direta. <b>Método</b> é a estratégia por trás dela. Prompt genérico
+            gera resposta genérica e rasa.</p>
+        <div class="grid">
+            <div class="card bad"><span class="tag b">Erro 1: faltou especificar</span>
+                <q>Me dê um plano de estudos sobre a Segunda Guerra Mundial.</q>
+                <p>A IA entregou um resumo longo para nível universitário, mas você precisava de questões focadas no estilo do ENEM (Ciências Humanas)</p>
+            </div>
+            <div class="card good"><span class="tag g">Acerto (Como resolver o Erro 1)</span>
+                <q>Crie um mapa mental e 20 questões estilo ENEM sobre os fatores que levaram ao início da Segunda Guerra Mundial, focando em Ciências Humanas.</q>
+            </div>
+            <div class="card bad"><span class="tag b">Erro 2: faltou contexto e formato</span>
+                <p>A IA explicou a fórmula de probabilidade de forma genérica, mas você queria um passo a passo aplicado a problemas do ENEM (Matemática).</p>
+            </div>
+            <div class="card good"><span class="tag g">Acerto (Como resolver o Erro 2)</span>
+                <p>Sempre defina o perfil de resposta e o foco da área:
+"Explique o conceito de probabilidade como se fosse um professor do ENEM, utilizando um exemplo prático do cotidiano e uma questão resolvida."</q></p>
+            </div>
+        </div>
+        <h3 style="margin-top:36px">3 níveis de pergunta</h3>
+        <div class="grid">
+            <div class="card"><span class="tag p">1</span>
+                <p>Pergunta direta</p>
+            </div>
+            <div class="card"><span class="tag p">2</span>
+                <p>Pedir explicação passo a passo</p>
+            </div>
+            <div class="card"><span class="tag p">3</span>
+                <p>Especificar assunto, nível e formato</p>
+            </div>
+        </div>
+        <h3 style="margin-top:36px">Hierarquia invertida: do mais específico ao mais básico</h3>
+        <p>Peça planos de estudo por nível. Quanto mais específico o tema, mais ele fica na ponta.</p>
+        <div class="steps">
+            <div class="step" style="background:#4b32d6;margin-left:0">Sênior: Equação de 2º grau (Bhaskara), o mais
+                específico</div>
+            <div class="step" style="background:#2f8f86;margin-left:24px">Pleno: Equação de 1º grau</div>
+            <div class="step" style="background:#c9414a;margin-left:48px">Júnior: Matemática básica, a base de tudo
+            </div>
+        </div>
+        <p>Também dá para pedir <b>exercícios práticos por nível</b> e <b>planos de estudo</b> personalizados.</p>
+    </section>
+
+    <section id="dicas">
+        <h2>Use a IA como tutor, não como resposta pronta</h2>
+        <p class="lead">A IA pode render mais nos estudos quando funciona como um tutor que te faz pensar, e não como
+            uma máquina de respostas prontas. Se você só pede "resolve isso pra mim", aprende pouco. Se pedir que ela te
+            explique, teste e corrija, o aprendizado é bem maior.</p>
+        <div class="grid">
+            <div class="card"><span class="tag p">1</span>
+                <h3>Peça explicações no seu nível</h3>
+                <p>Um conceito difícil fica mais fácil quando explicado com o que você já conhece.</p>
+                <q>Explique o que é juros compostos como se eu tivesse 15 anos e nunca tivesse estudado matemática financeira. Depois dê um exemplo com dinheiro na poupança.</q>
+            </div>
+            <div class="card"><span class="tag p">2</span>
+                <h3>Explique você mesmo e deixe a IA corrigir</h3>
+                <p>Explicar um assunto com as próprias palavras é uma das melhores formas de descobrir o que você não sabe.</p>
+                <q>Vou explicar como funciona a fotossíntese. Aponte o que estiver errado ou faltando, mas não me dê a resposta completa antes de eu terminar.</q>
+            </div>
+            <div class="card"><span class="tag p">3</span>
+                <h3>Faça a IA te testar</h3>
+                <p>Reler o material dá a sensação de que você sabe, mas responder perguntas mostra o que você realmente sabe.</p>
+                <q>Com base neste resumo que colei abaixo, faça 10 perguntas, uma de cada vez. Espere minha resposta, diga se acertei e explique meus erros antes de passar para a próxima.</q>
+            </div>
+            <div class="card"><span class="tag p">4</span>
+                <h3>Monte um plano de estudos realista</h3>
+                <p>A IA ajuda a organizar o tempo, principalmente quando você sabe quanto tem disponível.</p>
+                <q>Tenho prova de Biologia daqui a 3 semanas e posso estudar 1h30 por dia, de segunda a sexta. Os tópicos são genética, ecologia e citologia. Monte um cronograma com revisões espaçadas e um dia por semana para simulados.</q>
+            </div>
+        </div>
+    </section>
+
+    <section id="modelos">
+        <h2>Prompts modelo: copie e cole</h2>
+        <p class="lead">Troque o trecho em amarelo pelo assunto que você quer estudar.</p>
+        <div class="grid">
+            <div class="card"><span class="tag p">Ciências Humanas</span>
+                <p class="say" id="m1">Atue como um professor especialista em História, Geografia e Filosofia. Explique o conceito de <span class="ph">[Inserir Assunto, ex: Feudalismo / Globalização / Contratualismo]</span> de forma clara.</p>
+                <button class="copy" data-t="m1">Copiar prompt</button>
+            </div>
+            <div class="card"><span class="tag p">Ciências da Natureza</span>
+                <p class="say" id="m2">Atue como um divulgador científico didático. Explique <span class="ph">[Inserir Assunto, ex: Leis de Newton / Fotossíntese / Ligações Químicas]</span> sem usar jargões excessivamente complexos sem explicação.</p>
+                <button class="copy" data-t="m2">Copiar prompt</button>
+            </div>
+            <div class="card"><span class="tag p">Matemática</span>
+                <p class="say" id="m3">Atue como um tutor de Matemática focado em resolução intuitiva de problemas. Explique o assunto <span class="ph">[Inserir Assunto, ex: Funções do 2º grau / Probabilidade / Logaritmos]</span>.</p>
+                <button class="copy" data-t="m3">Copiar prompt</button>
+            </div>
+            <div class="card"><span class="tag p">Linguagens</span>
+                <p class="say" id="m4">Atue como um professor especialista em Linguística, Literatura e Redação. Explique o conceito de <span class="ph">[Inserir Assunto, ex: Figuras de Linguagem / Vanguardas Europeias / Funções da Linguagem]</span>.</p>
+                <button class="copy" data-t="m4">Copiar prompt</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="vantagem" class="dark">
+        <h2>A vantagem, na prática</h2>
+        <div class="vs">
+            <div style="background:#3a2d80">
+                <h3>Só vídeo</h3>
+                <div class="big">30 min</div>
+                <p>de vídeo sobre equação de 1º grau, e muita gente não aprende de primeira.</p>
+            </div>
+            <div style="background:#0b8f80">
+                <h3>Com I.A.</h3>
+                <p>1. Peça o assunto específico.<br>2. Leia a explicação objetiva.<br>3. Já peça exercícios para
+                    praticar.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="mercado">
+        <h2>Por que isso importa? O mercado já usa IA</h2>
+        <p class="lead">Dados das fontes do projeto. Toque nas barras para animar.</p>
+        <div class="grid">
+            <div class="card">
+                <h3>Empresas globais</h3>
+                <p class="lead" style="font-size:18px">ManpowerGroup</p>
+                <p>52% das grandes empresas (5.000+ funcionários) já usam IA. 
+                    A previsão é que 81% dos empregadores no mundo usem até 2027.</p>
+                <div class="bars">
+                    <div class="row"><span>Hoje</span>
+                        <div class="track">
+                            <div class="fill" style="--w:52%"></div>
+                        </div><b>52%</b>
+                    </div>
+                    <div class="row"><span>Até 2027</span>
+                        <div class="track">
+                            <div class="fill" style="--w:81%"></div>
+                        </div><b>81%</b>
+                    </div>
+                </div>
+               <p class="why">Na América Central e do Sul, 
+                76% dos profissionais de escritório são otimistas sobre o impacto positivo da IA.</p>
+            </div>
+            <div class="card">
+                <h3>Indústria brasileira</h3>
+                <p class="lead" style="font-size:18px">IBGE / G1</p>
+                <p>Indústrias com 100 ou mais funcionários que usam IA (Pintec Semestral 2024).</p>
+                <div class="bars">
+                    <div class="row"><span>2022</span>
+                        <div class="track">
+                            <div class="fill" style="--w:16.9%"></div>
+                        </div><b>16,9%</b>
+                    </div>
+                    <div class="row"><span>2024</span>
+                        <div class="track">
+                            <div class="fill r" style="--w:41.9%"></div>
+                        </div><b>41,9%</b>
+                    </div>
+                </div>
+                <p class="why">A IA é mais usada em Administração (87,9%), 
+                    Comercialização (75,2%) e Desenvolvimento de projetos (73,1%).</p>
+            </div>
+            <div class="card">
+                <h3>Mercado de T.I.</h3>
+                <p class="lead" style="font-size:18px">Kings Research</p>
+                <div class="big">US$ 277 bi</div>
+                <p>em 2024 (estimativa), com projeção de mais de <b>US$ 2,2 tri até 2031</b>, com crescimento de ~35% ao ano.</p>
+            </div>
+            <div class="card">
+                <h3>Faculdade</h3>
+                <p class="lead" style="font-size:18px">AIPRM</p>
+                <div class="big">53%</div>
+                <p>dos universitários britânicos já usam IA em trabalhos que valem nota (pesquisa HEPI). 
+                    Entre os professores, 55% acham que a IA vai melhorar os resultados dos alunos (pesquisa Forbes).</p>
+            </div>
+            <div class="card">
+                <h3>Ensino e tecnologia</h3>
+                <p class="lead" style="font-size:18px">ANBIMA / Stanford (AI Index 2025)</p>
+                <p>O custo de usar um modelo de IA do nível do GPT-3.5 caiu mais de 280 vezes entre novembro de 2022 e outubro de 2024. 
+                    E dois terços dos países já oferecem ou planejam oferecer educação em ciência da computação no ensino fundamental e 
+                    médio, o dobro de 2019.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="piloto">
+        <h2>O que levar daqui</h2>
+        <div class="grid">
+            <div class="card"><span class="tag p">1</span>
+                <h3>Dê contexto</h3>
+                <p>Diga o assunto, o seu nível e o formato que você quer. Pergunta vaga gera resposta vaga.</p>
+            </div>
+            <div class="card"><span class="tag p">2</span>
+                <h3>Use a IA como tutor</h3>
+                <p>Peça explicações, exercícios e correção, em vez de só pedir a resposta pronta.</p>
+            </div>
+            <div class="card"><span class="tag p">3</span>
+                <h3>Confira sempre</h3>
+                <p>A IA pode errar e inventar informações. Compare com o caderno, o livro ou o professor.</p>
+            </div>
+        </div>
+        <div class="card good" style="margin-top:24px">
+            <h3>Hora do quiz! 🎮</h3>
+            <p>Pegue o celular, abra <b>kahoot.it</b> e digite o PIN que vai aparecer no telão ou leia o qrcode na tela.</p>
+        </div>
+    </section>
+
+    <footer>Fontes: ManpowerGroup, G1/IBGE, Kings Research, AIPRM e ANBIMA/Stanford AI Index 2025.</footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
