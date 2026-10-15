@@ -17,15 +17,16 @@ document.querySelectorAll('.toggle button').forEach(function (b) {
 });
 
 /* ---------- Abas: IA por área + como estudar melhor ----------
-   n = nome da aba | d = descrição da área | a = ferramentas [nome, descrição]
+   n = nome da aba | d = descrição da área
+   a = ferramentas [ [ [nome, link], ... ], descrição ]
    i = introdução de "como estudar melhor" | p = prompts de exemplo        */
 var areas = [
     {
         n: 'Matemática',
         d: 'Matemática e suas Tecnologias: Matemática.',
         a: [
-            ['Photomath', 'Ideal para ver o passo a passo da resolução de contas e equações.'],
-            ['WolframAlpha', 'Ótimo para verificar cálculos complexos e gerar gráficos de funções.']
+            [[['Photomath', 'https://photomath.com']], 'Ideal para ver o passo a passo da resolução de contas e equações.'],
+            [[['WolframAlpha', 'https://www.wolframalpha.com']], 'Ótimo para verificar cálculos complexos e gerar gráficos de funções.']
         ],
         i: 'Em Matemática, o segredo é praticar, errar e entender onde se errou. Ver a solução pronta dá a falsa sensação de aprendizado. Por isso, peça dicas progressivas:',
         p: [
@@ -39,8 +40,8 @@ var areas = [
         n: 'Humanas',
         d: 'Ciências Humanas e Sociais Aplicadas: História, Geografia, Filosofia e Sociologia.',
         a: [
-            ['Perplexity AI', 'Traz conteúdos atualizados com fontes e referências confiáveis, perfeito para História e Geografia.'],
-            ['Claude', 'Excelente para criar linhas do tempo, comparar correntes de pensamento (Filosofia/Sociologia) e montar argumentos para redação.']
+            [[['Perplexity AI', 'https://www.perplexity.ai']], 'Traz conteúdos atualizados com fontes e referências confiáveis, perfeito para História e Geografia.'],
+            [[['Claude', 'https://claude.ai']], 'Excelente para criar linhas do tempo, comparar correntes de pensamento (Filosofia/Sociologia) e montar argumentos para redação.']
         ],
         i: 'Em Ciências Humanas, o desafio é compreender contextos, causas e consequências, e não decorar datas soltas. Nessa área, a IA ajuda a organizar as relações entre os acontecimentos. Um bom pedido seria:',
         p: [
@@ -55,8 +56,8 @@ var areas = [
         n: 'Linguagens',
         d: 'Linguagens e suas Tecnologias: Português, Literatura, Inglês, Artes e Educação Física (Espanhol pode ser optativo).',
         a: [
-            ['Claude', 'Melhor para interpretação de textos, análise de obras literárias e produção de redação.'],
-            ['DeepL', 'Mais preciso para tradução e correção de textos em Inglês e Espanhol.']
+            [[['Claude', 'https://claude.ai']], 'Melhor para interpretação de textos, análise de obras literárias e produção de redação.'],
+            [[['DeepL', 'https://www.deepl.com']], 'Mais preciso para tradução e correção de textos em Inglês e Espanhol.']
         ],
         i: 'Em Linguagens, o objetivo é interpretar, escrever e se expressar com clareza. Para interpretação, cole um texto e peça perguntas. Para gramática, aprender com exemplos ajuda mais do que decorar regras:',
         p: [
@@ -70,7 +71,7 @@ var areas = [
         n: 'Natureza',
         d: 'Ciências da Natureza e suas Tecnologias: Biologia, Física e Química.',
         a: [
-            ['Claude / ChatGPT', 'Ótimos para explicar conceitos de Biologia, Química e Física de forma simples, com exemplos e exercícios práticos.']
+            [[['Claude', 'https://claude.ai'], ['ChatGPT', 'https://chatgpt.com']], 'Ótimos para explicar conceitos de Biologia, Química e Física de forma simples, com exemplos e exercícios práticos.']
         ],
         i: 'Em Ciências da Natureza e suas Tecnologias, o foco está em entender processos e fenômenos e relacioná-los ao cotidiano. Também vale treinar com questões no estilo do exame:',
         p: [
@@ -85,6 +86,15 @@ var areas = [
 var t = document.getElementById('tabs'),
     p = document.getElementById('panel');
 
+/* Monta o botão verde com link(s) clicável(is) para o site de cada IA */
+function toolLinks(links) {
+    return links.map(function (l) {
+        return '<a href="' + l[1] + '" target="_blank" rel="noopener noreferrer" ' +
+            'style="color:inherit;text-decoration:none" title="Abrir ' + l[0] + '">' +
+            l[0] + ' ↗</a>';
+    }).join(' / ');
+}
+
 function show(i) {
     [].forEach.call(t.children, function (b, j) {
         b.setAttribute('aria-selected', i === j);
@@ -93,7 +103,7 @@ function show(i) {
     p.innerHTML =
         '<p><b>' + a.d + '</b></p>' +
         a.a.map(function (x) {
-            return '<div class="ai"><b>' + x[0] + '</b><span>' + x[1] + '</span></div>';
+            return '<div class="ai"><b>' + toolLinks(x[0]) + '</b><span>' + x[1] + '</span></div>';
         }).join('') +
         '<h3 style="margin-top:24px">Como estudar melhor</h3>' +
         '<p>' + a.i + '</p>' +
